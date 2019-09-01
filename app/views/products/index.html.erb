@@ -1,0 +1,9 @@
+<h1><%= pluralize(@products.size, 'Product') %></h1>
+
+<ul>
+  <% @products.each do |product| %>
+  <li>
+    <%= product.name %>
+  </li>
+  <% end %>
+</ul>
