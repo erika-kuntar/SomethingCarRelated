@@ -1,0 +1,18 @@
+<h1>Listings for <%= link_to @product.name, @product %></h1>
+
+<%= form_for([@product, @listing]) do |f| %>
+  <%= f.label :model %>
+  <%= f.text_field :model, autofocus:true %>
+  <br>
+  <br>
+  <%= f.label :year %>
+  <%= f.select :year, (Time.zone.now.year - 200)..(Time.zone.now.year + 2) %>
+  <br>
+  <br>
+  <%= f.label :color %>
+  <%= f.text_field :color, autofocus:true %>
+  <br>
+  <br>
+  <%= f.submit "Post Listing" %> |
+  <%= link_to "Cancel", @product %>
+<% end %>
