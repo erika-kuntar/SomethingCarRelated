@@ -1,9 +1,3 @@
 <h1>Editing <%= @product.name %></h1>
 
-<%= form_for(@product) do |f| %>
-  <p>
-    <%= f.label :name %> <br>
-    <%= f.text_field :name %>
-  </p>
-  <%= f.submit %>
-<% end %>
+<%= render 'form' %>

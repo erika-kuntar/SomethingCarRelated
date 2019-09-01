@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.alphabetical
   end
 
   def show
@@ -25,6 +25,12 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.save
     redirect_to @product
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to products_url
   end
 
 end

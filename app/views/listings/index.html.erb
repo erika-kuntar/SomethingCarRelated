@@ -1,0 +1,10 @@
+<h1>Listings for <%= link_to(@product.name, @product) %></h1>
+
+<% @listings.each do |l| %>
+<li>
+  <%= l.year %>
+  <%= l.product.name %>
+  <%= l.model %>
+  <%= l.color %>
+</li>
+<% end %>

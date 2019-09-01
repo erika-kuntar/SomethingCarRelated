@@ -1,4 +1,9 @@
 <h1><%= @product.name %></h1>
 
+<%= link_to "Product Listings", product_listings_path(@product) %>
+
+<br> <br>
+
 <%= link_to "All Products", root_path %> |
-<%= link_to "Edit", edit_product_path(@product) %>
+<%= link_to "Edit", edit_product_path(@product) %> |
+<%= link_to "Delete", product_path(@product), method: :delete, data: {confirm: 'Are you sure you want to delete?'} %>
