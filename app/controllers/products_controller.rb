@@ -13,8 +13,11 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.update(product_params)
-    redirect_to @product
+    if @product.update(product_params)
+      redirect_to @product, notice: "Product successfully updated!"
+    else
+      render :edit
+    end
   end
 
   def new
@@ -23,14 +26,17 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.save
-    redirect_to @product
+    if @product.save
+      redirect_to products_url(@product), notice: "Thanks for adding!"
+    else
+      render :new
+    end
   end
 
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to products_url
+    redirect_to products_url, alert: "Product successfully deleted!"
   end
 
 end

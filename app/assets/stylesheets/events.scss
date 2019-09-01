@@ -1,0 +1,9 @@
+.flash {
+  color: red;
+  &.notice {
+    background-color: orange;
+  }
+  &.alert {
+    background-color: orange;
+  }
+}

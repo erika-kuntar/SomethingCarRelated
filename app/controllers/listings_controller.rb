@@ -14,7 +14,7 @@ class ListingsController < ApplicationController
     @product = Product.find(params[:product_id])
     @listing = @product.listings.new(listing_params)
     if @listing.save
-      redirect_to product_listings_path(@product)
+      redirect_to product_listings_path(@product), notice: "You added a listing!"
     else
       render :new
     end
