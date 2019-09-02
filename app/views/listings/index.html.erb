@@ -1,5 +1,7 @@
 <h1>Listings for <%= link_to(@product.name, @product) %></h1>
 
+<%=  %>
+
 <% @listings.each do |l| %>
 <li>
   <%= l.year %>
@@ -14,3 +16,7 @@
 <%= link_to "Create new listing", new_product_listing_path(@product) %>
 <br>
 <%= link_to "All Products", root_path %>
+
+<%= form_for "",url: product_listings_path, role: "search", method: :get do %>
+  <%= text_field_tag :search, @search_term, placeholder: "Search by Listing" %>
+<% end %>

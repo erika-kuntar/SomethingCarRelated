@@ -2,7 +2,12 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    # @products = Product.alphabetical
     @products = Product.alphabetical
+    if params[:search]
+      @search_term = params[:search]
+      @products = @products.search_by(@search_term)
+    end
   end
 
   def show

@@ -5,6 +5,10 @@ class ListingsController < ApplicationController
     # @listings = Listing.all
     @product = Product.find(params[:product_id])
     @listings = @product.listings
+    if params[:search]
+      @search_term = params[:search]
+      @listings = @listings.search_by(@search_term)
+    end
   end
 
   def new

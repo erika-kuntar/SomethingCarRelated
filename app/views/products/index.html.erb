@@ -19,3 +19,7 @@
   <%= link_to('Login', new_user_session_path) %>
   </li>
 <% end %>
+
+<%= form_for "",url: products_path, role: "search", method: :get do %>
+  <%= text_field_tag :search, @search_term, placeholder: "Search by Make" %>
+<% end %>
